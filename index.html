@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#12213a" />
+  <meta name="description" content="台灣機車駕照筆試練習，806 題題庫隨機抽取 50 題，每次選項順序重新打亂，完成後立即計分與訂正。" />
+  <title>機車駕照｜50 題模擬測驗</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="機車駕照練習首頁"><span class="brand-icon">M</span><span>機車駕照<span class="brand-accent">練習室</span></span></a>
+      <div class="header-side"><span class="header-tag">115 年題庫</span><span class="header-dot"></span><span id="headerTotal">806 題</span></div>
+    </div>
+  </header>
+  <main class="site-main">
+    <section id="home" class="home-wrap" aria-labelledby="homeTitle">
+      <div class="home-main">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> MOTORCYCLE LICENSE PRACTICE</div>
+        <h1 id="homeTitle">考駕照，<br><span>從這 50 題開始。</span></h1>
+        <p class="home-desc">從題庫隨機抽題、每題選項自動洗牌。專心做完 50 題，立即看分數、找出錯題，練到真正熟悉為止。</p>
+        <div class="home-highlights"><span>✓ 隨機抽取 50 題</span><span>✓ 選項每回重新排列</span><span>✓ 作答後完整訂正</span></div>
+        <div class="home-actions"><button id="startBtn" class="btn btn-primary btn-xl">開始模擬測驗 <span aria-hidden="true">↗</span></button><button id="wrongStartBtn" class="btn btn-ghost btn-xl" hidden>只練之前錯的題目</button></div>
+        <p id="homeHint" class="home-hint">每題 2 分，滿分 100 分。重新整理頁面也能繼續作答。</p>
+      </div>
+      <aside class="home-panel" aria-label="測驗說明">
+        <div class="panel-top"><span>YOUR PRACTICE</span><span class="mini-cross">✳</span></div>
+        <div class="panel-bignum">50<span> / 題</span></div>
+        <div class="panel-line"></div>
+        <div class="panel-stat"><span>每回抽題</span><strong>隨機不重複</strong></div>
+        <div class="panel-stat"><span>選項順序</span><strong>每次重新打亂</strong></div>
+        <div class="panel-stat"><span>作答結果</span><strong>即時計分＆錯題解析</strong></div>
+        <div class="panel-bottom"><span class="bar-icon">● ● ●</span><span>練習愈多，考試愈穩。</span></div>
+      </aside>
+      <div class="home-foot"><div><strong id="bankCount">806</strong><span>題完整題庫</span></div><div><strong>100</strong><span>每回滿分</span></div><div><strong id="bestScore">—</strong><span>個人最佳分數</span></div></div>
+    </section>
+    <section id="exam" class="exam-wrap" hidden aria-labelledby="examTitle">
+      <div class="exam-top"><div><span class="section-tag">MOCK EXAM</span><h1 id="examTitle">機車駕照模擬測驗</h1><p id="examSubtitle" class="muted">每題 2 分・共 50 題</p></div><button id="quitBtn" class="btn btn-quiet">結束本回測驗 ×</button></div>
+      <div class="progress-line" role="progressbar" aria-label="作答進度" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+      <div class="exam-stats"><div><strong id="answeredCount">0</strong><span> / 50 已作答</span></div><div id="remainingCount">還有 50 題待完成</div></div>
+      <div class="exam-grid">
+        <div class="question-board">
+          <div class="question-meta"><span id="questionCounter" class="q-chip">QUESTION 01 / 50</span><span id="questionSource" class="q-source">題庫第 1 題</span></div>
+          <h2 id="questionTitle">載入題目中…</h2>
+          <div id="questionImage" class="question-image" hidden></div>
+          <div id="options" class="options" role="group" aria-label="作答選項"></div>
+          <div class="question-controls"><button id="prevBtn" class="btn btn-quiet">← 上一題</button><div class="question-nav"><button id="nextBtn" class="btn btn-primary">下一題 →</button><button id="submitBtn" class="btn btn-finish" hidden>完成並計分 →</button></div></div>
+        </div>
+        <aside class="exam-sidebar"><div class="sidebar-heading"><strong>題目總覽</strong><span>點選題號可跳題</span></div><div id="questionGrid" class="question-grid" aria-label="題號導航"></div><div class="sidebar-legend"><span><i class="legend-done"></i>已作答</span><span><i class="legend-current"></i>目前題目</span><span><i class="legend-todo"></i>未作答</span></div><div class="side-tip"><strong>小提醒</strong><p>可以來回修改答案。全部答完後，按「完成並計分」一次查看結果。</p></div></aside>
+      </div>
+    </section>
+    <section id="results" class="results-wrap" hidden aria-labelledby="resultTitle">
+      <div class="result-hero"><div class="eyebrow light">EXAM COMPLETED</div><h1 id="resultTitle">完成這回練習！</h1><div class="result-score"><span id="scoreNum">0</span><span class="score-suffix">/ 100 分</span></div><p id="resultMessage">每一次練習，都是離考照更近一步。</p><div class="result-counts"><div><strong id="correctCount">0</strong><span>答對</span></div><div><strong id="wrongCount">0</strong><span>答錯</span></div><div><strong id="resultBest">—</strong><span>最高分</span></div></div><div class="result-actions"><button id="retryBtn" class="btn btn-primary">再抽 50 題 ↗</button><button id="reviewBtn" class="btn btn-white">查看本回訂正 ↓</button><button id="resultHomeBtn" class="btn btn-outline-white">返回首頁</button></div></div>
+      <div id="review" class="review-section"><div class="review-heading"><div><span class="section-tag">ANSWER REVIEW</span><h2>本回答題訂正</h2><p class="muted">優先顯示答錯的題目，幫你對照正確答案。</p></div><div class="review-tabs"><button class="tab active" id="wrongTab">錯題</button><button class="tab" id="allTab">全部 50 題</button></div></div><div id="reviewList" class="review-list"></div></div>
+    </section>
+    <div id="error" class="error-panel" hidden><h2>題庫載入失敗</h2><p>請重新整理頁面，若持續無法使用，請確認網站的 data 資料夾完整。</p><button class="btn btn-primary" onclick="location.reload()">重新整理</button></div>
+  </main>
+  <footer>機車駕照練習室・題目及答案依據上傳的「機車駕照筆試題庫 115.1」整理・模擬練習工具，非正式監理站考試系統。</footer>
+  <script>window.MOTO_DATA=[];</script>
+  <script src="data/part-01.js"></script><script src="data/part-02.js"></script><script src="data/part-03.js"></script><script src="data/part-04.js"></script><script src="data/part-05.js"></script><script src="data/part-06.js"></script><script src="data/part-07.js"></script><script src="data/part-08.js"></script><script src="data/part-09.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
